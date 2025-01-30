@@ -13,7 +13,25 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
+# include "../libft/src/libft.h"
+# include "../libft/src/ft_printf/ft_printf.h"
 
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
+# include <fcntl.h>
+
+typedef struct s_node
+{
+	int				data;
+	struct s_node	*next
+}	t_node;
+
+typedef struct s_stack
+{
+	int				size;
+	struct s_stack	*head;
+}	t_stack;
 
 #endif

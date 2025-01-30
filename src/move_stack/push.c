@@ -10,3 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../include/push_swap.h"
+
+void	ft_push(t_stack *src, t_stack dst, char c)
+{
+	t_node	temp;
+
+	if (src->head)
+		return 0;
+	temp = src->head;
+	src->head = src->head->next;
+	temp->next = dst->head;
+	dst->head = temp;
+}

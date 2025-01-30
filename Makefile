@@ -2,8 +2,6 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
 
-LIBFT = libft/libft.a
-
 DIR_SRC = src
 DIR_INC = include
 DIR_UTILS = utils

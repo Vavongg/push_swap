@@ -14,5 +14,14 @@
 
 void	ft_swap(t_stack *lst, char c)
 {
+	t_node	*first;
+	t_node	*second;
 
+	if (!lst || !lst->head || !lst->head->next)
+		return ;
+	first = lst->head;
+	second = lst->head->next;
+	first->next = second->next;
+	second->next = first;
+	lst->head = second;
 }

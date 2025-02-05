@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_print_base10.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 10:51:08 by ainthana          #+#    #+#             */
-/*   Updated: 2025/01/29 10:51:10 by ainthana         ###   ########.fr       */
+/*   Created: 2024/12/04 12:14:03 by ainthana          #+#    #+#             */
+/*   Updated: 2024/12/04 13:02:47 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "ft_printf.h"
 
-void	ft_reverse_rotate(t_stack *lst, char c)
+size_t	ft_print_base10(long nb, char f)
 {
-	t_node	*last;
-	t_node	*temp;
+	char	*str;
+	char	*base;
+	size_t	len;
 
-	if (!lst || !lst->head || !lst->head->next)
-		return ;
-	last = lst->head;
-	while (last->next)
-	{
-		temp = last;
-		last = last->next;
-	}
-	temp->next = NULL;
-	last->next = lst->head;
-	lst->head = last;
+	base = "0123456789";
+	if (f == 'u')
+		str = ft_itoa_base((unsigned int) nb, base);
+	else
+		str = ft_itoa_base((int) nb, base);
+	if (!str)
+		return (0);
+	len = ft_putstr(str);
+	free(str);
+	return (len);
 }

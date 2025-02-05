@@ -10,3 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../include/push_swap.h"
+
+void	ft_rotate(t_stack *lst, char c)
+{
+	t_node	*first;
+	t_node	*temp:
+	
+	if (!lst || !lst->head || !lst->head->next)
+		return ;
+	first = lst->head;
+	lst->head = lst->head->next;
+	temp = lst->head;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = first;
+	first->next = NULL;
+}

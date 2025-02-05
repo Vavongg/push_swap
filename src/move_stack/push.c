@@ -22,4 +22,5 @@ void	ft_push(t_stack *src, t_stack dst, char c)
 	src->head = src->head->next;
 	temp->next = dst->head;
 	dst->head = temp;
+	ft_printf("p%c", c);
 }

@@ -28,4 +28,5 @@ void	ft_reverse_rotate(t_stack *lst, char c)
 	temp->next = NULL;
 	last->next = lst->head;
 	lst->head = last;
+	ft_printf("rr%c", c);
 }

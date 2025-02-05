@@ -24,4 +24,5 @@ void	ft_swap(t_stack *lst, char c)
 	first->next = second->next;
 	second->next = first;
 	lst->head = second;
+	ft_printf("s%c", c);
 }

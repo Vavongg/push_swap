@@ -26,4 +26,5 @@ void	ft_rotate(t_stack *lst, char c)
 		temp = temp->next;
 	temp->next = first;
 	first->next = NULL;
+	ft_printf("r%c", c);
 }

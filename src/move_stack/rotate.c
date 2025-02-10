@@ -15,7 +15,7 @@
 void	ft_rotate(t_stack *lst, char c)
 {
 	t_node	*first;
-	t_node	*temp:
+	t_node	*temp;
 	
 	if (!lst || !lst->head || !lst->head->next)
 		return ;

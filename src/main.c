@@ -14,9 +14,10 @@
 
 int main (int argc, char **argv)
 {
-	t_node	stack_a;
-	t_node	stack_b;
-	
+	t_stack	*stack_a = NULL;
+	t_stack	*stack_b = NULL;
+
+	(void)argv;
 	stack_a->head = NULL;
 	stack_b->head = NULL;
 	if (argc < 2)

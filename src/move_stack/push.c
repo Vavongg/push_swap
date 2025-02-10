@@ -12,15 +12,17 @@
 
 #include "../../include/push_swap.h"
 
-void	ft_push(t_stack *src, t_stack dst, char c)
+void	ft_push(t_stack *src, t_stack *dst, char c)
 {
-	t_node	temp;
+	t_node	*temp;
 
-	if (src->head)
+	if (!src || !src->head)
 		return ;
 	temp = src->head;
 	src->head = src->head->next;
 	temp->next = dst->head;
 	dst->head = temp;
+	dst->size++;
+	src->size--;
 	ft_printf("p%c", c);
 }

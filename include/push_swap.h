@@ -24,13 +24,13 @@
 typedef struct s_node
 {
 	int				data;
-	struct s_node	*next
+	struct s_node	*next;
 }	t_node;
 
 typedef struct s_stack
 {
 	int				size;
-	struct s_stack	*head;
+	struct s_node	*head;
 }	t_stack;
 
 #endif

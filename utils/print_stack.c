@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   print_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 10:49:43 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/14 14:53:03 by ainthana         ###   ########.fr       */
+/*   Created: 2025/02/14 14:27:39 by ainthana          #+#    #+#             */
+/*   Updated: 2025/02/14 14:43:28 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
-void	ft_push(t_stack *src, t_stack *dst, char c)
+void	print_stack(t_stack *stack, char name)
 {
-	t_node	*temp;
-
-	if (!src || !src->head)
-		return ;
-	temp = src->head;
-	src->head = src->head->next;
-	temp->next = dst->head;
-	dst->head = temp;
-	dst->size++;
-	src->size--;
-	ft_printf("p%c", c);
+    t_node *current = stack->head;
+    ft_printf("Stack %c: ", name);
+    while (current)
+    {
+        ft_printf("%d -> ", current->value);
+        current = current->next;
+    }
+    ft_printf("NULL\n");
 }

@@ -5,10 +5,10 @@ PRINTF = ft_printf/printf
 
 SRC = src/main.c \
 	  src/move_stack/push.c src/move_stack/reverse_rotate.c src/move_stack/rotate.c src/move_stack/swap.c \
-	  
-UTILS = verif_args.c 
 
-OBJ = $(SRC:.c=.o)
+UTILS = utils/print_stack.c utils/free_stack.c
+
+OBJ = $(SRC:.c=.o) $(UTILS:.c=.o)
 
 all : $(PRINTF) $(NAME)
 
@@ -16,7 +16,7 @@ $(NAME) : $(OBJ)
 	$(CC) $(OBJ) $(PRINTF) -o $@
 
 $(PRINTF) :
-	@make -C ft_printf
+	make -C ft_printf
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -24,11 +24,11 @@ $(PRINTF) :
 
 clean :
 	rm -rf $(OBJ) $(DIR_UTILS)
-	@make clean -C ft_printf
+	make clean -C ft_printf
 
 fclean : clean
 	rm -f $(NAME)
-	@make fclean -C ft_printf
+	make fclean -C ft_printf
 
 re : fclean all 
 

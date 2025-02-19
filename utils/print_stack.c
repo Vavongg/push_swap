@@ -14,7 +14,14 @@
 
 void	print_stack(t_stack *stack, char name)
 {
-    t_node *current = stack->head;
+    t_node *current;
+	
+	/*if (!stack || !stack->head)
+	{
+		ft_printf("%s is empty.\n", name);
+		return ;
+	}*/
+	current = stack->head;
     ft_printf("Stack %c: ", name);
     while (current)
     {

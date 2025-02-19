@@ -41,7 +41,7 @@ void	ft_swap(t_stack *lst, char c);
 
 void	print_stack(t_stack *stack, char name);
 void	free_stack(t_stack *stack);
-t_node	*lstnew(int value);
+t_node	*ft_lstnew(int value);
 
 int		ft_isdigit(int c);
 int		ft_atoi(char *nb);

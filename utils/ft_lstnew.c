@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-t_node	*lstnew(int value)
+t_node	*ft_lstnew(int value)
 {
 	t_node	*ptr;
 

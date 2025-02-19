@@ -44,6 +44,8 @@ void	free_stack(t_stack *stack);
 t_node	*lstnew(int value);
 
 int		ft_isdigit(int c);
+int		ft_atoi(char *nb);
+
 
 
 #endif

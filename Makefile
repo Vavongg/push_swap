@@ -8,7 +8,9 @@ SRC = src/main.c \
 
 UTILS = utils/print_stack.c utils/free_stack.c utils/lstnew.c
 
-OBJ = $(SRC:.c=.o) $(UTILS:.c=.o)
+VERIF = verif/ft_isdigit.c verif/ft_atoi.c
+
+OBJ = $(SRC:.c=.o) $(UTILS:.c=.o) $(VERIF:.c=.o)
 
 all : $(PRINTF) $(NAME)
 

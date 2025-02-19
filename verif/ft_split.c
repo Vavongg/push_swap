@@ -47,7 +47,7 @@ int	create_and_add_node(t_stack *stack, char *str, size_t start, size_t end)
 	return (1);
 }
 
-t_stack	*ft_split_list(char *str, char c)
+void	*ft_split(char *str, char c)
 {
 	t_stack	*stack;
 	size_t	i;
@@ -69,5 +69,4 @@ t_stack	*ft_split_list(char *str, char c)
 		}
 		j = i;
 	}
-	return (stack);
 }

@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/14 14:58:19 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:49:59 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,9 @@ void	ft_swap(t_stack *lst, char c);
 
 void	print_stack(t_stack *stack, char name);
 void	free_stack(t_stack *stack);
+t_node	*lstnew(int value);
+
+int		ft_isdigit(int c);
+
 
 #endif

@@ -55,11 +55,6 @@ t_stack	*ft_split_list(char *str, char c)
 
 	i = 0;
 	j = 0;
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->head = NULL;
-	stack->size = 0;
 	while (str[j])
 	{
 		while (str[j] == c && str[j])

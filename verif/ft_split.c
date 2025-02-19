@@ -12,88 +12,44 @@
 
 #include "../include/push_swap.h"
 
-size_t	ft_count(char *str, char c)
+int	create_and_add_node(t_stack *stack, char *str, size_t start, size_t end)
 {
-	int	i;
-	int	j;
+	int		value;
+	t_node	*new_node;
 
-	i = 0;
-	j = 0;
-	while (str && str[i])
+	value = ft_atoi(ft_putword(str, start, end));
+	new_node = ft_lstnew(value);
+	if (!new_node)
+		return (0);
+	new_node->next = stack->head;
+	stack->head = new_node;
+	stack->size++;
+	return (1);
+}
+
+t_stack	*ft_split_list(char *str, char c)
+{
+	t_stack	*stack;
+	size_t	i = 0, j = 0;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->head = NULL;
+	stack->size = 0;
+	while (str[j])
 	{
-		if (str[i] != c)
+		while (str[j] == c && str[j])
+			j++;
+		i = j;
+		while (str[i] != c && str[i])
+			i++;
+		if (i > j)
 		{
-			j++;
-			while (str[i] != c && str[i])
-				i++;
-			if (str[i] == '\0')
-				return (j);
+			if (!create_and_add_node(stack, str, j, i))
+				return (NULL);
 		}
-		i++;
+		j = i;
 	}
-	return (j);
-}
-
-char	*ft_putword(char *str, size_t start, size_t end)
-{
-	char	*word;
-	size_t	i;
-
-	i = 0;
-	if (!str)
-		return (NULL);
-	word = malloc(sizeof (char) * (end + start) + 1);
-	if(!word)
-		return (NULL);
-	while (start + i < end)
-	{
-		word[i] = str[start + i];
-		i++;
-	}
-	word[i] = '\0';
-	return (word);
-}
-
-char	**ft_free_tab(char **tab)
-{
-	size_t	i;
-
-	i = 0;
-	while (tab && tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return (NULL);
-}
-
-char	**ft_split(char *str, char c)
-{
-	char	**split;
-	size_t	i;
-	size_t	j;
-	size_t	k;
-
-	i = 0;
-	j = 0;
-	k = 0;
-	split = malloc(sizeof (char *) * (ft_count(str, c) + 1));
-	if (!split)
-		return (NULL);
-	while (i < ft_count(str,c) && str[j])
-	{
-i		while (str[j] == c & str[j])
-			j++;
-		k = j;
-		while (str[k] != c && str[k])
-			k++;
-		split[i] = ft_putword(str, j, k);
-		j = k;
-		if (!split[i])
-			return (ft_free_tab(split), NULL);
-		i++;
-	}
-	split[i] = NULL;
-	return (split);
+	return (stack);
 }

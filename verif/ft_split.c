@@ -12,6 +12,26 @@
 
 #include "../include/push_swap.h"
 
+char	*ft_putword(char *str, size_t start, size_t end)
+{
+	char	*word;
+	size_t	i;
+
+	i = 0;
+	if (!str)
+		return (NULL);
+	word = malloc(sizeof (char) * (end - start) + 1);
+	if (!word)
+		return (NULL);
+	while (start + i < end)
+	{
+		word[i] = str[start + i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
+}
+
 int	create_and_add_node(t_stack *stack, char *str, size_t start, size_t end)
 {
 	int		value;
@@ -30,8 +50,11 @@ int	create_and_add_node(t_stack *stack, char *str, size_t start, size_t end)
 t_stack	*ft_split_list(char *str, char c)
 {
 	t_stack	*stack;
-	size_t	i = 0, j = 0;
+	size_t	i;
+	size_t	j;
 
+	i = 0;
+	j = 0;
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/17 16:49:59 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/21 02:16:36 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_node	*ft_lstnew(int value);
 int		ft_isdigit(int c);
 int		ft_atoi(char *nb);
 void	ft_split(t_stack *stack, char *str, char c);
+int		create_and_add_node(t_stack *stack, char *str, size_t start, size_t end);
 
 
 

@@ -45,6 +45,8 @@ t_node	*ft_lstnew(int value);
 
 int		ft_isdigit(int c);
 int		ft_atoi(char *nb);
+void	ft_split(t_stack *stack, char *str, char c);
+
 
 
 

@@ -36,8 +36,13 @@ int	create_and_add_node(t_stack *stack, char *str, size_t start, size_t end)
 {
 	int		value;
 	t_node	*new_node;
+	char	*word;
 
-	value = ft_atoi(ft_putword(str, start, end));
+	word = ft_putword(str, start, end);
+	if (!word)
+		return (0);
+	value = ft_atoi(word);
+	free(word);
 	new_node = ft_lstnew(value);
 	if (!new_node)
 		return (0);
@@ -47,12 +52,13 @@ int	create_and_add_node(t_stack *stack, char *str, size_t start, size_t end)
 	return (1);
 }
 
-void	*ft_split(char *str, char c)
+void	ft_split(t_stack *stack, char *str, char c)
 {
-	t_stack	*stack;
 	size_t	i;
 	size_t	j;
 
+	if (!stack || !str)
+		return ;
 	i = 0;
 	j = 0;
 	while (str[j])
@@ -65,8 +71,9 @@ void	*ft_split(char *str, char c)
 		if (i > j)
 		{
 			if (!create_and_add_node(stack, str, j, i))
-				return (NULL);
+				return ;
 		}
 		j = i;
 	}
 }
+

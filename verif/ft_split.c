@@ -76,4 +76,3 @@ void	ft_split(t_stack *stack, char *str, char c)
 		j = i;
 	}
 }
-

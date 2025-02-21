@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:14 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/21 16:28:40 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:30:35 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-long	ft_atoi(char *nb)
+int	is_valid_number(char *str)
+{
+	int i;
+
+	i = 0;
+	if (!str[i])
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!ft_isdigit(str[i]))
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+long	ft_atol(char *nb)
 {
 	long			i;
 	int				sign;
@@ -23,7 +43,7 @@ long	ft_atoi(char *nb)
 	result = 0;
 	while (nb[i] == 32 || (nb[i] >= 9 && nb[i] <= 13))
 		i++;
-	if (nb[i] == '-' || nb[i] == '+')
+	while (nb[i] == '-' || nb[i] == '+')
 	{
 		if (nb[i] == '-')
 			sign *= -1;

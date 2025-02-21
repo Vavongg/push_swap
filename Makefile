@@ -6,9 +6,9 @@ PRINTF = ft_printf/printf
 SRC = src/main.c \
 	  src/move_stack/push.c src/move_stack/reverse_rotate.c src/move_stack/rotate.c src/move_stack/swap.c \
 
-UTILS = utils/print_stack.c utils/free_stack.c utils/ft_lstnew.c
+UTILS = utils/print_stack.c utils/free_stack.c utils/ft_lstnew.c utils/create_add_node.c
 
-VERIF = verif/ft_isdigit.c verif/ft_atoi.c verif/ft_split.c
+VERIF = verif/ft_isdigit.c verif/ft_atol.c verif/ft_split.c
 
 OBJ = $(SRC:.c=.o) $(UTILS:.c=.o) $(VERIF:.c=.o)
 

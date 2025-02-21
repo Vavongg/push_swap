@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:39:20 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/21 15:09:48 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:41:33 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
         i = 1;
         while (i < argc)
         {
-            if (!create_and_add_node(stack_a, argv[i], 0, ft_strlen(argv[i])))
+            if (!create_node(stack_a, argv[i], 0, ft_strlen(argv[i])))
             {
                 ft_printf("Error\n");
                 return (1);

@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:18 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/21 17:03:01 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:41:59 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_split(t_stack *stack, char *str, char c)
 			i++;
 		if (i > j)
 		{
-			if (!create_and_add_node(stack, str, j, i))
+			if (!create_node(stack, str, j, i))
 				return ;
 		}
 		j = i;

@@ -6,17 +6,17 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:14 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/17 16:45:22 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:28:40 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_atoi(char *nb)
+long	ft_atoi(char *nb)
 {
-	int				i;
+	long			i;
 	int				sign;
-	unsigned int	result;
+	long			result;
 
 	i = 0;
 	sign = 1;

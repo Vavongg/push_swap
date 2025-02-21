@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:39:20 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/21 02:17:36 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:09:48 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ int main(int argc, char **argv)
             i++;
         }
     }
-
-    ft_printf("Avant toute opération :\n");
     print_stack(stack_a, 'a');
 
     free_stack(stack_a);

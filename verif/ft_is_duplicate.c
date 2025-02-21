@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_is_duplicate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 14:27:39 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/21 15:11:06 by ainthana         ###   ########.fr       */
+/*   Created: 2025/02/21 12:32:44 by ainthana          #+#    #+#             */
+/*   Updated: 2025/02/21 12:35:57 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include ../include/push_swap.h
 
-void	print_stack(t_stack *stack, char name)
+int	ft_is_duplicate(int nb, char **argv, int i)
 {
-    t_node *current;
-	
-	if (!stack || !stack->head)
+	i++;
+	while (argv[i])
 	{
-		ft_printf("%s is empty.\n", name);
-		return ;
+		if (ft_atoi(argv[i]) == nb)
+			return (1);
+		i++;
 	}
-	current = stack->head;
-    ft_printf("Stack %c : \n", name);
-    while (current)
-    {
-        ft_printf("[%d]\n", current->value, current->index);
-        current = current->next;
-    }
+	return (0);
 }

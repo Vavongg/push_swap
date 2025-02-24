@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/21 17:41:11 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:15:04 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void	add_node(t_stack *stack, t_node *new_node);
 int		ft_isdigit(int c);
 long	ft_atol(char *nb);
 int		is_valid_number(char *str);
-void	ft_split(t_stack *stack, char *str, char c);
-char	*ft_putword(char *str, size_t start, size_t end);
+char	**ft_split(char const *s, char c);
+char	**ft_free_tab(char **tab);
+char	*ft_putword(char const *s, size_t start, size_t end);
+int		ft_is_duplicate(int nb, char **argv, int i);
+
 
 #endif

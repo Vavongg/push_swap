@@ -17,7 +17,7 @@ int	is_valid_number(char *str)
 	int i;
 
 	i = 0;
-	if (!str[i])
+	if (!str || !str[i])
 		return (0);
 	if (str[i] == '-' || str[i] == '+')
 		i++;

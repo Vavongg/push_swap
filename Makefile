@@ -8,7 +8,7 @@ SRC = src/main.c \
 
 UTILS = utils/print_stack.c utils/free_stack.c utils/ft_lstnew.c utils/add_stack.c
 
-VERIF = verif/ft_isdigit.c verif/ft_atol.c verif/ft_split.c
+VERIF = verif/ft_isdigit.c verif/ft_atol.c verif/ft_split.c verif/ft_is_duplicate.c 
 
 OBJ = $(SRC:.c=.o) $(UTILS:.c=.o) $(VERIF:.c=.o)
 
@@ -23,6 +23,8 @@ $(PRINTF) :
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 
+debug:
+	$(CC) $(SRC) $(UTILS) $(VERIF) $(PRINTF) -o debug -g3
 
 clean :
 	rm -rf $(OBJ) $(DIR_UTILS)

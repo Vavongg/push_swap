@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:39:20 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/21 17:41:33 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:23:07 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 int main(int argc, char **argv)
 {
-    t_stack	*stack_a;
-    t_stack	*stack_b;
-    int		i;
+    t_stack *stack_a;
+    t_stack *stack_b;
+    int i;
+    int num;
 
     if (argc < 2)
-    {
-        ft_printf("Error : Minimum 1 argument\n");
         return (1);
-    }
 
     stack_a = malloc(sizeof(t_stack));
     stack_b = malloc(sizeof(t_stack));
@@ -34,14 +32,23 @@ int main(int argc, char **argv)
     stack_b->size = 0;
 
     if (argc == 2)
-        ft_split(stack_a, argv[1], ' ');
+        ft_split(argv[1], ' ');
     else
     {
         i = 1;
         while (i < argc)
         {
+            num = ft_atol(argv[i]);
+            if (ft_is_duplicate(num, argv, i))
+            {
+                free_stack(stack_a);
+                ft_printf("Error\n");
+                return (1);
+            }
+
             if (!create_node(stack_a, argv[i], 0, ft_strlen(argv[i])))
             {
+                free_stack(stack_a);
                 ft_printf("Error\n");
                 return (1);
             }

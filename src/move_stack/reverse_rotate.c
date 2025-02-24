@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:51:08 by ainthana          #+#    #+#             */
-/*   Updated: 2025/01/29 10:51:10 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:46:15 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,11 @@ void	ft_reverse_rotate(t_stack *lst, char c)
 	last->next = lst->head;
 	lst->head = last;
 	ft_printf("rr%c", c);
+}
+
+void	ft_reverse_rotate_both(t_stack *a, t_stack *b)
+{
+	ft_reverse_rotate(a, 'a');
+	ft_reverse_rotate(b, 'b');
+	ft_printf("rrr\n");
 }

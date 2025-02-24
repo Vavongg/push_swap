@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/24 15:37:22 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:47:48 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ typedef struct s_stack
 //move_stack
 void	ft_push(t_stack *src, t_stack *dst, char c);
 void	ft_reverse_rotate(t_stack *lst, char c);
+void	ft_reverse_rotate_both(t_stack *a, t_stack *b);
 void	ft_rotate(t_stack *lst, char c);
+void	rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	ft_swap(t_stack *lst, char c);
+void	swap_both(t_stack *stack1, t_stack *stack2);
 
 //utils
 void	print_stack(t_stack *stack, char name);

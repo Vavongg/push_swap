@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:39:20 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/24 15:23:07 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:41:00 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ int main(int argc, char **argv)
     stack_b->size = 0;
 
     if (argc == 2)
-        ft_split(argv[1], ' ');
+	{
+        verif_args(2, &argv[1]);
+	}
     else
     {
         i = 1;

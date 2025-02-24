@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/24 15:47:48 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:42:56 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ char	**ft_split(char const *s, char c);
 char	**ft_free_tab(char **tab);
 char	*ft_putword(char const *s, size_t start, size_t end);
 int		ft_is_duplicate(int nb, char **argv, int i);
-
+void	verif_args(int argc, char **argv);
 
 #endif

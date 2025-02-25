@@ -12,25 +12,3 @@
 
 #include "../include/push_swap.h"
 
-char	**verif_args(int argc, char **argv)
-{
-    char    **args;
-    int     i;
-    
-    if (argc == 2)
-    {
-        args = ft_split(argv[1], ' ');
-        i = 0;
-    }
-    else
-    {
-        args = argv;
-        i = 1;
-    }
-    while (args && args[i])
-    {
-        check_number(args[i], args, i);
-        i++;
-    }
-	return (args);
-}

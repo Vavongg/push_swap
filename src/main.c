@@ -32,33 +32,27 @@ int main(int argc, char **argv)
     stack_b->size = 0;
 
     if (argc == 2)
-	{
-        verif_args(2, &argv[1]);
-	}
+        i = 0;
     else
-    {
         i = 1;
-        while (i < argc)
+    while (argv[i])
+    {
+        num = ft_atol(argv[i]);
+        if (ft_is_duplicate(num, &argv[i], i))
         {
-            num = ft_atol(argv[i]);
-            if (ft_is_duplicate(num, argv, i))
-            {
-                free_stack(stack_a);
-                ft_printf("Error\n");
-                return (1);
-            }
-
-            if (!create_node(stack_a, argv[i], 0, ft_strlen(argv[i])))
-            {
-                free_stack(stack_a);
-                ft_printf("Error\n");
-                return (1);
-            }
-            i++;
+            free_stack(stack_a);
+            ft_printf("Error\n");
+            return (1);
         }
+        else if (!create_node(stack_a, argv[i], 0, ft_strlen(argv[i])))
+        {
+            free_stack(stack_a);
+            ft_printf("Error\n");
+            return (1);
+        }
+        i++;
     }
-    print_stack(stack_a, 'a');
-
+	print_stack(stack_a, 'a');
     free_stack(stack_a);
     free_stack(stack_b);
     return (0);

@@ -1,14 +1,14 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 PRINTF = ft_printf/printf
 
 SRC = src/main.c \
 	  src/move_stack/push.c src/move_stack/reverse_rotate.c src/move_stack/rotate.c src/move_stack/swap.c \
 
-UTILS = utils/print_stack.c utils/free_stack.c utils/ft_lstnew.c utils/add_stack.c utils/ft_lstsize.c
+UTILS = utils/print_stack.c utils/free_stack.c utils/add_stack.c
 
-VERIF = verif/ft_isdigit.c verif/ft_atol.c verif/ft_split.c verif/ft_is_duplicate.c verif/verif_args.c
+VERIF = verif/utils_verif.c verif/ft_atol.c verif/ft_split.c verif/verif_args.c
 
 OBJ = $(SRC:.c=.o) $(UTILS:.c=.o) $(VERIF:.c=.o)
 

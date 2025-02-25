@@ -55,13 +55,11 @@ int		ft_lstsize(t_node *head);
 //verif
 int		ft_isdigit(int c);
 long	ft_atol(char *nb);
-int		is_valid_number(char *str);
-char	**ft_split(char const *s, char c);
-char	**ft_free_tab(char **tab);
 char	*ft_putword(char const *s, size_t start, size_t end);
+t_node    **splitlst(char *str, t_node **lst);
+long int    transcheck(char *str);
+char    *subcopy(char *str, size_t len);
 int		ft_is_duplicate(int nb, char **argv, int i);
-void    verif_args(int argc, char **argv);
-void    check_number(char *arg, char **args, int i, int is_split);
-void    free_args(char **args, int is_split);
+char    **verif_args(int argc, char **argv);
 
 #endif

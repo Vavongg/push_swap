@@ -12,26 +12,6 @@
 
 #include "../include/push_swap.h"
 
-int	is_valid_number(char *str)
-{
-	int i;
-
-	i = 0;
-	if (!str || !str[i])
-		return (0);
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!ft_isdigit(str[i]))
-		return (0);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 long	ft_atol(char *nb)
 {
 	long			i;
@@ -49,7 +29,7 @@ long	ft_atol(char *nb)
 			sign *= -1;
 		i++;
 	}
-	while (ft_isdigit(nb[i]))
+	while (is_valid_number(&nb[i]))
 	{
 		result *= 10;
 		result += nb[i] - '0';

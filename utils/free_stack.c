@@ -23,7 +23,9 @@ void	free_stack(t_stack *stack)
 	{
 		temp = stack->head;
 		stack->head = stack->head->next;
-	free(temp);
+		free(temp);
+		temp = NULL;
 	}
 	free(stack);
+	stack = NULL;
 }

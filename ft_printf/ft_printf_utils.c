@@ -34,7 +34,10 @@ int	ft_putstr(const char *str)
 
 	i = 0;
 	while (str && str[i])
-		ft_putchar(str[i++]);
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
 	if (!str)
 	{
 		ft_putstr("(null)");

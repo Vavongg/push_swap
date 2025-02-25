@@ -12,86 +12,73 @@
 
 #include "../include/push_swap.h"
 
-static size_t	ft_count(char const *str, char c)
+char    *subcopy(char *str, size_t len)
 {
-	int	i;
-	int	j;
+    char    *sub;
+    size_t    i;
 
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			j++;
-			while (str[i] != c && str[i])
-				i++;
-			if (str[i] == '\0')
-				return (j);
-		}
-		i++;
-	}
-	return (j);
+    i = 0;
+    sub = malloc(sizeof(char) * (len + 1));
+    if (!sub)
+        return (NULL);
+    while (i < len)
+    {
+        sub[i] = str[i];
+        i ++;
+    }
+    sub[i] = '\0';
+    return (sub);
 }
 
-char	*ft_putword(char const *s, size_t start, size_t end)
+long int    transcheck(char *str)
 {
-	char	*word;
-	size_t	i;
+    char        *temp;
+    long int    num;
+    size_t        j;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	word = malloc(sizeof (char) * (end - start) + 1);
-	if (!word)
-		return (NULL);
-	while (start + i < end)
-	{
-		word[i] = s[start + i];
-		i++;
-	}
-	word[i] = '\0';
-	return (word);
+    j = 0;
+    while (str[j] && str[j] != ' ')
+        j ++;
+    temp = subcopy(str, j);
+    if (!temp || !checkdigit(temp))
+    {
+        if (temp)
+            free(temp);
+        return (CHECK_ERROR);
+    }
+    else
+    {
+        num = ft_atoi(temp);
+        free(temp);
+        str = str + j;
+    }
+    return (num);
 }
 
-char	**ft_free_tab(char **tab)
+t_list    **splitlst(char *str, t_list **lst)
 {
-	size_t	i;
+    long int    num;
+    size_t        i;
 
-	i = 0;
-	while (tab && tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return (NULL);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**split;
-	size_t	i;
-	size_t	j;
-	size_t	k;
-
-	i = ((j = ((k = 0))));
-	split = malloc(sizeof (char *) * (ft_count(s, c) + 1));
-	if (!split)
-		return (NULL);
-	while (i < ft_count(s, c) && s[j])
-	{
-		while (s[j] == c && s[j])
-			j++;
-		k = j;
-		while (s[k] != c && s[k])
-			k++;
-		split[i] = ft_putword(s, j, k);
-		j = k;
-		if (!split[i])
-			return (ft_free_tab(split), NULL);
-		i++;
-	}
-	split[i] = NULL;
-	return (split);
+    i = 0;
+    while (str && str[i] == ' ')
+        i ++;
+    while (str && str[i])
+    {
+        num = transcheck(str + i);
+        if (num < -2147483648 || num > 2147483647 || lstcheck(num, lst))
+        {
+            lstfree(lst);
+            return (NULL);
+        }
+        else
+        {
+            lstadd(lstnew(num), lst);
+            while (str[i] && str[i] != ' ')
+                i ++;
+            while (str[i] == ' ')
+                i ++;
+        }
+    }
+    return (lst);
 }

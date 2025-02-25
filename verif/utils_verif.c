@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_duplicate.c                                  :+:      :+:    :+:   */
+/*   utils_verif.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 12:32:44 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/24 15:18:20 by ainthana         ###   ########.fr       */
+/*   Created: 2025/02/25 12:32:25 by ainthana          #+#    #+#             */
+/*   Updated: 2025/02/25 12:32:27 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,32 @@ int	ft_is_duplicate(int nb, char **argv, int i)
 		i++;
 	}
 	return (0);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
+
+char	*ft_putword(char const *s, size_t start, size_t end)
+{
+	char	*word;
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	word = malloc(sizeof (char) * (end - start) + 1);
+	if (!word)
+		return (NULL);
+	while (start + i < end)
+	{
+		word[i] = s[start + i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
 }

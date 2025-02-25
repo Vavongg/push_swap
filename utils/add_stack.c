@@ -50,3 +50,29 @@ int	create_node(t_stack *stack, char *str, size_t start, size_t end)
 	add_node(stack, new_node);
 	return (1);
 }
+
+t_node	*ft_lstnew(int value)
+{
+	t_node	*ptr;
+
+	ptr = malloc(sizeof(t_node));
+	if (!ptr)
+		return (NULL);
+	ptr->value = value;
+	ptr->index = 0;
+	ptr->next = NULL;
+	return (ptr);
+}
+
+int	ft_lstsize(t_node *head)
+{
+	int	count;
+
+	count = 0;
+	while (head)
+	{
+		count++;
+		head = head->next;
+	}
+	return (count);
+}

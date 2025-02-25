@@ -18,14 +18,14 @@ void	print_stack(t_stack *stack, char name)
 	
 	if (!stack || !stack->head)
 	{
-		ft_printf("%s is empty.\n", name);
+		ft_printf("%c is empty.\n", name);
 		return ;
 	}
 	current = stack->head;
     ft_printf("Stack %c : \n", name);
-    while (current)
+    while (current && current->value)
     {
-        ft_printf("[%d]\n", current->value, current->index);
+        ft_printf("[%d]\n", current->value);
         current = current->next;
     }
 }

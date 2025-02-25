@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:08:29 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/25 01:03:57 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/25 02:07:41 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,11 @@ void    verif_args(int argc, char **argv)
         i = 1;
         is_split = 0;
     }
-    
     while (args[i])
     {
         check_number(args[i], args, i, is_split);
         i++;
     }
-    
     if (is_split)
         free_args(args, 1);
 }
-

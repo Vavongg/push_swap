@@ -54,6 +54,7 @@ int		ft_lstsize(t_node *head);
 
 //verif
 int		ft_isdigit(int c);
+int	is_valid_number(char *str);
 long	ft_atol(char *nb);
 char	*ft_putword(char const *s, size_t start, size_t end);
 t_node    **splitlst(char *str, t_node **lst);

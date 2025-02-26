@@ -23,7 +23,7 @@ void	print_stack(t_stack *stack, char name)
 	}
 	current = stack->head;
     ft_printf("Stack %c : \n", name);
-    while (current && current->value)
+    while (current)
     {
         ft_printf("[%d]\n", current->value);
         current = current->next;

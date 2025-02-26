@@ -55,7 +55,7 @@ long int    transcheck(char *str)
     return (num);
 }
 
-t_list    **splitlst(char *str, t_list **lst)
+t_list    **splitlst(char *str, t_node **lst)
 {
     long int    num;
     size_t        i;

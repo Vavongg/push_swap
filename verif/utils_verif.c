@@ -32,15 +32,35 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-char	*ft_putword(char const *s, size_t start, size_t end)
+#include "../include/push_swap.h"
+
+int	is_valid_number(char *str)
+{
+    size_t i;
+
+	i = 0;
+    if (!str || str[0] == '\0')
+        return (0);
+    if (str[i] == '+' || str[i] == '-')
+        i++;
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]))
+            return (0);
+        i++;
+    }
+    return (1);
+}
+
+char	*ft_putword(const char *s, size_t start, size_t end)
 {
 	char	*word;
 	size_t	i;
 
 	i = 0;
-	if (!s)
+	if (!s || start >= end)
 		return (NULL);
-	word = malloc(sizeof (char) * (end - start) + 1);
+	word = malloc(sizeof(char) * (end - start + 1));
 	if (!word)
 		return (NULL);
 	while (start + i < end)

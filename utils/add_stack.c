@@ -42,11 +42,9 @@ int	create_node(t_stack *stack, char *str, size_t start, size_t end)
 	}
 	value = ft_atol(word);
 	free(word);
-
 	new_node = ft_lstnew(value);
 	if (!new_node)
 		return (0);
-
 	add_node(stack, new_node);
 	return (1);
 }

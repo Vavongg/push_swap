@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 17:49:27 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:38:39 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ int		ft_is_duplicate(int nb, char **argv, int i);
 char    **verif_args(int argc, char **argv);
 char    *subcopy(char *str, size_t len);
 long int check_word(char *str);
+t_node  *ft_splitlst(char *str);
 
 #endif

@@ -8,7 +8,7 @@ SRC = src/main.c \
 
 UTILS = utils/utils_print.c utils/free_stack.c utils/add_stack.c utils/index_stack.c
 
-VERIF = verif/utils_verif.c verif/ft_atol.c verif/verif_args.c verif/ft_split.c
+VERIF = verif/utils_verif.c verif/ft_atol.c verif/verif_args.c
 
 OBJ = $(SRC:.c=.o) $(UTILS:.c=.o) $(VERIF:.c=.o)
 

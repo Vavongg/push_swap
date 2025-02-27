@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/25 01:02:11 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:21:56 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,17 @@ t_node	*ft_lstnew(int value);
 int		create_node(t_stack *stack, char *str, size_t start, size_t end);
 void	add_node(t_stack *stack, t_node *new_node);
 int		ft_lstsize(t_node *head);
+void index_stack(t_stack *stack);
 
 //verif
-int		ft_isdigit(int c);
-int	is_valid_number(char *str);
 long	ft_atol(char *nb);
+int		ft_isdigit(int c);
+int		is_valid_number(char *str);
 char	*ft_putword(char const *s, size_t start, size_t end);
-t_node    **splitlst(char *str, t_node **lst);
-long int    transcheck(char *str);
-char    *subcopy(char *str, size_t len);
 int		ft_is_duplicate(int nb, char **argv, int i);
 char    **verif_args(int argc, char **argv);
+t_node    **splitlst(char *str, t_node **lst);
+long int	transcheck(char *str);
+char    *subcopy(char *str, size_t len);
 
 #endif

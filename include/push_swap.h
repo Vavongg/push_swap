@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 18:38:39 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:25:57 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_node	*ft_lstnew(int value);
 int		create_node(t_stack *stack, char *str, size_t start);
 void	add_node(t_stack *stack, t_node *new_node);
 int		ft_lstsize(t_node *head);
-void index_stack(t_stack *stack);
+void 	index_stack(t_stack *stack);
 
 //verif
 long	ft_atol(char *nb);

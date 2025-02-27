@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:02:16 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 18:41:58 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:22:45 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int create_node(t_stack *stack, char *str, size_t start)
     t_node *new_node;
 
     value = check_word(str + start);
-    if (value == -1)
+    if (value == 0)
     {
         return (0);
     }

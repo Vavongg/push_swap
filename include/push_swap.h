@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 19:25:57 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:35:22 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ long	ft_atol(char *nb);
 int		ft_isdigit(int c);
 int		is_valid_number(char *str);
 int		ft_is_duplicate(int nb, char **argv, int i);
-char    **verif_args(int argc, char **argv);
 char    *subcopy(char *str, size_t len);
-long int check_word(char *str);
+int check_word(char *str);
+long int parse_args(char *str);
 t_node  *ft_splitlst(char *str);
 
 #endif

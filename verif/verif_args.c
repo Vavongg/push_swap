@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:18 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 19:23:19 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:15:52 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@ char *subcopy(char *str, size_t len)
         i++;
     }
     sub[i] = '\0';
-    return (sub);
+    return (sub); 
 }
 
-long int check_word(char *str)
+int check_word(char *str)
 {
     char        *temp;
-    long int    num;
     size_t      j;
 
     j = 0;
@@ -44,6 +43,28 @@ long int check_word(char *str)
         print_error();
         return (0);
     }
+    while (str[j] == ' ')
+        j++;
+    while (str[j] && str[j] != ' ')
+        j++;
+    temp = subcopy(str, j);
+    if (!temp || !is_valid_number(temp))
+    {
+        free(temp);
+        print_error();
+        return (0);
+    }
+    free(temp);
+    return (1);
+}
+
+long int parse_args(char *str)
+{
+    size_t      j;
+    char        *temp;
+    long int    num;
+
+    j = 0;
     while (str[j] == ' ')
         j++;
     while (str[j] && str[j] != ' ')

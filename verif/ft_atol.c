@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:14 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 16:02:52 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 21:46:11 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ long	ft_atol(char *nb)
 	}
 	while (nb[i] && ft_isdigit(nb[i]))
 	{
-		if (result > LONG_MAX / 10 || (result == LONG_MAX / 10 && nb[i] - '0' > LONG_MAX % 10))
-			return (sign == 1 ? LONG_MAX : LONG_MIN);
 		result = result * 10 + (nb[i] - '0');
 		i++;
 	}

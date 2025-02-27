@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:39:20 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 16:27:00 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:54:41 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,13 @@ int main(int argc, char **argv)
         {
             free_stack(stack_a);
             free_stack(stack_b);
-            ft_printf("Error\n");
+            print_error();
             return (1);
         }
-        else if (!create_node(stack_a, argv[i], 0, ft_strlen(argv[i])))
+        else if (!create_node(stack_a, argv[i], 0))
         {
             free_stack(stack_a);
             free_stack(stack_b);
-            ft_printf("Error\n");
             return (1);
         }
         i++;

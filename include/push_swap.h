@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 16:21:56 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:49:27 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ void	swap_both(t_stack *stack1, t_stack *stack2);
 
 //utils
 void	print_stack(t_stack *stack, char name);
+void 	print_error(void);
 void	free_stack(t_stack *stack);
 t_node	*ft_lstnew(int value);
-int		create_node(t_stack *stack, char *str, size_t start, size_t end);
+int		create_node(t_stack *stack, char *str, size_t start);
 void	add_node(t_stack *stack, t_node *new_node);
 int		ft_lstsize(t_node *head);
 void index_stack(t_stack *stack);
@@ -57,11 +58,9 @@ void index_stack(t_stack *stack);
 long	ft_atol(char *nb);
 int		ft_isdigit(int c);
 int		is_valid_number(char *str);
-char	*ft_putword(char const *s, size_t start, size_t end);
 int		ft_is_duplicate(int nb, char **argv, int i);
 char    **verif_args(int argc, char **argv);
-t_node    **splitlst(char *str, t_node **lst);
-long int	transcheck(char *str);
 char    *subcopy(char *str, size_t len);
+long int check_word(char *str);
 
 #endif

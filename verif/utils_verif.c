@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:32:25 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 15:43:03 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:22:07 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,4 @@ int	is_valid_number(char *str)
 		i++;
 	}
 	return (1);
-}
-
-char	*ft_putword(const char *s, size_t start, size_t end)
-{
-	char	*word;
-	size_t	i;
-
-	i = 0;
-	if (!s || start >= end)
-		return (NULL);
-	word = malloc(sizeof(char) * (end - start + 1));
-	if (!word)
-		return (NULL);
-	while (start + i < end)
-	{
-		word[i] = s[start + i];
-		i++;
-	}
-	word[i] = '\0';
-	return (word);
 }

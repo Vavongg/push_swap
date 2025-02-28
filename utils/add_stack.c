@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:02:16 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/27 23:16:48 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/02/28 02:26:44 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,20 @@ void	add_node(t_stack *stack, t_node *new_node)
 	stack->size++;
 }
 
-int create_node(t_stack *stack, char *str, size_t start)
+int create_node(t_stack *stack, char *str)
 {
     long value;
+    t_node *new_node;
 
-    if (!check_word(str + start))
-        return 0;
-    value = parse_args(str + start);
-    if (value == 0)
-    {
-        if (str[start] == '0' && (str[start + 1] == '\0' || str[start + 1] == ' '))
-        {
-            t_node *new_node = ft_lstnew((int)value);
-            if (!new_node)
-                return 0;
-            add_node(stack, new_node);
-            return 1;
-        }
-        return 0;
-    }
-    t_node *new_node = ft_lstnew((int)value);
+    value = parse_args(str);
+    if (value == LONG_MIN)
+        return (0);
+    new_node = ft_lstnew((int)value);
     if (!new_node)
-        return 0;
+        return (0);
     add_node(stack, new_node);
-    return 1;
+    return (1);
 }
-
 
 t_node	*ft_lstnew(int value)
 {

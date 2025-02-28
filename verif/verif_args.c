@@ -56,7 +56,7 @@ int check_args(char *str)
 
 long parse_args(char *str)
 {
-    long num;
+    long	num;
 
     if (!check_args(str))
     {

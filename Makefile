@@ -4,36 +4,41 @@ CFLAGS = -Wall -Werror -Wextra -g
 PRINTF = ft_printf/printf
 
 SRC = src/main.c \
-	  src/move_stack/push.c src/move_stack/reverse_rotate.c src/move_stack/rotate.c src/move_stack/swap.c \
+      src/move_stack/push.c src/move_stack/reverse_rotate.c src/move_stack/rotate.c src/move_stack/swap.c \
 
 UTILS = utils/utils_print.c utils/free_stack.c utils/add_stack.c utils/index_stack.c
 
 VERIF = verif/utils_verif.c verif/ft_atol.c verif/verif_args.c verif/ft_split.c
 
-OBJ = $(SRC:.c=.o) $(UTILS:.c=.o) $(VERIF:.c=.o)
+OBJ_DIR = obj
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o) $(UTILS:%.c=$(OBJ_DIR)/%.o) $(VERIF:%.c=$(OBJ_DIR)/%.o)
 
-all : $(PRINTF) $(NAME)
+all: $(OBJ_DIR) $(PRINTF) $(NAME)
 
-$(NAME) : $(OBJ)
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)/src/move_stack $(OBJ_DIR)/utils $(OBJ_DIR)/verif
+
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) $(PRINTF) -o $@
 
-$(PRINTF) :
+$(PRINTF):
 	make -C ft_printf
 
-.c.o:
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@mkdir -p $(dir $@) # Crée les sous-dossiers si nécessaires
 	$(CC) $(CFLAGS) -c $< -o $@
 
-debug:
-	$(CC) $(SRC) $(UTILS) $(VERIF) $(PRINTF) -o debug -g3
+debug: $(OBJ)
+	$(CC) $(OBJ) $(PRINTF) -o debug -g3
 
-clean :
-	rm -rf $(OBJ) $(DIR_UTILS)
+clean:
+	rm -rf $(OBJ_DIR)
 	make clean -C ft_printf
 
-fclean : clean
+fclean: clean
 	rm -f $(NAME)
 	make fclean -C ft_printf
 
-re : fclean all 
+re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY: all clean fclean re

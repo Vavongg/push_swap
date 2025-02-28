@@ -12,42 +12,31 @@
 
 #include "../include/push_swap.h"
 
-t_node  *ft_splitlst(char *str)
+t_node	**splitlst(char *str, t_stack *stack)
 {
-    t_node  *head;
-    t_node  *current;
-    t_node  *new_node;
-    size_t  start;
-    size_t  end;
-    char    *word;
+    long int    num;
+    size_t        i;
+	t_node		new_node;
 
-    head = NULL;
-    current = NULL;
-    start = 0;
-    end = 0;
-    if (!str)
-        return (NULL);
-    while (str[start])
+    i = 0;
+    while (str && str[i] == ' ')
+        i ++;
+    while (str && str[i])
     {
-        while (str[start] == ' ' && str[start])
-            start++;
-        if (!str[start])
-            break ;
-        end = start;
-        while (str[end] && str[end] != ' ')
-            end++;
-        word = subcopy(str + start, end - start);
-        if (!word)
+        num = parse_args(str + i);
+        if (num < -2147483648 || num > 2147483647 || !check_args(str))
+        {
+            free_stack(stack);
             return (NULL);
-        new_node = ft_lstnew(ft_atol(word));
-        if (!new_node)
-            return (NULL);
-        if (!head)
-            head = new_node;
+        }
         else
-            current->next = new_node;
-        current = new_node;
-        start = end;
+        {
+            create_node(stack, str);
+            while (str[i] && str[i] != ' ')
+                i ++;
+            while (str[i] == ' ')
+                i ++;
+        }
     }
-    return (head);
+    return (new_node);
 }

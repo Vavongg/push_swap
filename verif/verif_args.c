@@ -64,7 +64,7 @@ long parse_args(char *str)
         return (LONG_MIN);
     }
     num = ft_atol(str);
-    if (num <= LONG_MIN || num < INT_MIN || num > INT_MAX)
+    if (num < LONG_MIN || num <= INT_MIN || num >= INT_MAX)
     {
         print_error();
         return (LONG_MIN);

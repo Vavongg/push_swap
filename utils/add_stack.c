@@ -55,16 +55,3 @@ t_node	*ft_lstnew(int value)
 	ptr->next = NULL;
 	return (ptr);
 }
-
-int	ft_lstsize(t_node *head)
-{
-	int	count;
-
-	count = 0;
-	while (head)
-	{
-		count++;
-		head = head->next;
-	}
-	return (count);
-}

@@ -51,7 +51,6 @@ void	free_stack(t_stack *stack);
 t_node	*ft_lstnew(int value);
 int 	create_node(t_stack *stack, char *str);
 void	add_node(t_stack *stack, t_node *new_node);
-int		ft_lstsize(t_node *head);
 void 	index_stack(t_stack *stack);
 
 //verif

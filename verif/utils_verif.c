@@ -12,6 +12,31 @@
 
 #include "../include/push_swap.h"
 
+long	ft_atol(char *nb)
+{
+	long	i;
+	int		sign;
+	long	result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (nb[i] == 32 || (nb[i] >= 9 && nb[i] <= 13))
+		i++;
+	if (nb[i] == '-' || nb[i] == '+')
+	{
+		if (nb[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (nb[i] && ft_isdigit(nb[i]))
+	{
+		result = result * 10 + (nb[i] - '0');
+		i++;
+	}
+	return (result * sign);
+}
+
 int	ft_is_duplicate(int nb, char **argv, int i)
 {
 	long	value;
@@ -35,26 +60,4 @@ int	ft_isdigit(int c)
 		return (1);
 	else
 		return (0);
-}
-
-int	is_valid_number(char *str)
-{
-    size_t	i;
-
-	if (!str || str[0] == '\0')
-		return (0);
-	i = 0;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (!str[i + 1] || !ft_isdigit(str[i + 1]))
-			return (0);
-		i++;
-	}
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
 }

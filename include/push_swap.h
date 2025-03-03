@@ -58,8 +58,6 @@ long	ft_atol(char *nb);
 int		ft_isdigit(int c);
 int		is_valid_number(char *str);
 int		ft_is_duplicate(int nb, char **argv, int i);
-int 	check_args(char *str);
-char *subcopy(char *str, size_t len);
 long int parse_args(char *str);
 t_node    **splitlst(char *str, t_stack *stack);
 

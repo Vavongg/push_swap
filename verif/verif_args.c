@@ -12,53 +12,33 @@
 
 #include "../include/push_swap.h"
 
-char *subcopy(char *str, size_t len)
+int	is_valid_number(char *str)
 {
-    char *sub;
-    size_t i;
+    size_t	i;
 
-    i = 0;
-    if (!str)
-        return (NULL);
-    sub = malloc(sizeof(char) * (len + 1));
-    if (!sub)
-        return (NULL);
-    while (i < len)
-    {
-        sub[i] = str[i];
-        i++;
-    }
-    sub[i] = '\0';
-    return (sub); 
-}
-
-int check_args(char *str)
-{
-    size_t i;
-
-    if (!str || str[0] == '\0')
-        return (0);
-    i = 0;
-    if (str[i] == '+' || str[i] == '-')
-    {
-        if (!str[i + 1] || !ft_isdigit(str[i + 1]))
-            return (0);
-        i++;
-    }
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (0);
-        i++;
-    }
-    return (1);
+	if (!str || str[0] == '\0')
+		return (0);
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (!str[i + 1] || !ft_isdigit(str[i + 1]))
+			return (0);
+		i++;
+	}
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 long parse_args(char *str)
 {
     long	num;
 
-    if (!check_args(str))
+    if (!is_valid_number(str))
     {
         print_error();
         return (LONG_MIN);

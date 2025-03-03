@@ -12,11 +12,10 @@
 
 #include "../include/push_swap.h"
 
-t_node	**splitlst(char *str, t_stack *stack)
+t_stack	**splitlst(char *str, t_stack *stack)
 {
-    long int    num;
-    size_t        i;
-	t_node		new_node;
+    long int	num;
+    size_t		i;
 
     i = 0;
     while (str && str[i] == ' ')
@@ -24,7 +23,7 @@ t_node	**splitlst(char *str, t_stack *stack)
     while (str && str[i])
     {
         num = parse_args(str + i);
-        if (num < -2147483648 || num > 2147483647 || !check_args(str))
+        if (num < -2147483648 || num > 2147483647 || !is_valid_number(str))
         {
             free_stack(stack);
             return (NULL);
@@ -38,5 +37,5 @@ t_node	**splitlst(char *str, t_stack *stack)
                 i ++;
         }
     }
-    return (new_node);
+    return (stack);
 }

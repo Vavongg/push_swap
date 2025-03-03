@@ -59,6 +59,6 @@ int		ft_isdigit(int c);
 int		is_valid_number(char *str);
 int		ft_is_duplicate(int nb, char **argv, int i);
 long int parse_args(char *str);
-t_node    **splitlst(char *str, t_stack *stack);
+t_stack    **splitlst(char *str, t_stack *stack);
 
 #endif

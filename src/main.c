@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     t_stack *stack_a;
     t_stack *stack_b;
     int i;
-    int num;
+	int	num;
 
     if (argc < 2)
         return (1);
@@ -34,13 +34,16 @@ int main(int argc, char **argv)
     stack_a->size = 0;
     stack_b->size = 0;
     if (argc == 2)
-        i = 0;
+    {
+		i = 0;
+		stack_a->head = splitlst(argv[1], stack_a);
+	}
     else
         i = 1;
     while (argv[i])
     {
         num = ft_atol(argv[i]);
-        if (num < INT_MIN || num > INT_MAX || ft_is_duplicate(num, argv, i))
+        if (num < INT_MIN || num > INT_MAX || ft_is_duplicate(stack_a, num))
         {
             free_stack(stack_a);
             free_stack(stack_b);

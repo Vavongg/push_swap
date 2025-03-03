@@ -37,21 +37,17 @@ long	ft_atol(char *nb)
 	return (result * sign);
 }
 
-int	ft_is_duplicate(int nb, char **argv, int i)
+int ft_is_duplicate(t_stack *stack, int value)
 {
-	long	value;
+    t_node *current = stack->head;
 
-	i++;
-	while (argv[i])
-	{
-		value = ft_atol(argv[i]);
-		if (value < INT_MIN || value > INT_MAX)
-			return (0);
-		if ((int)value == nb)
-			return (1);
-		i++;
-	}
-	return (0);
+    while (current)
+    {
+        if (current->value == value)
+            return (1);
+        current = current->next;
+    }
+    return (0);
 }
 
 int	ft_isdigit(int c)

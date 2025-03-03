@@ -9,7 +9,6 @@ SRC = src/main.c \
 UTILS = utils/utils_print.c utils/free_stack.c utils/add_stack.c utils/index_stack.c
 
 VERIF = verif/utils_verif.c verif/verif_args.c verif/ft_split.c
-
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o) $(UTILS:%.c=$(OBJ_DIR)/%.o) $(VERIF:%.c=$(OBJ_DIR)/%.o)
 
@@ -25,7 +24,7 @@ $(PRINTF):
 	make -C ft_printf
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@mkdir -p $(dir $@) # Crée les sous-dossiers si nécessaires
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 debug: $(OBJ)

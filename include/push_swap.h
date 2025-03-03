@@ -57,8 +57,10 @@ void 	index_stack(t_stack *stack);
 long	ft_atol(char *nb);
 int		ft_isdigit(int c);
 int		is_valid_number(char *str);
-int		ft_is_duplicate(int nb, char **argv, int i);
+int 	ft_is_duplicate(t_stack *stack, int value);
 long int parse_args(char *str);
-t_node    **splitlst(char *str, t_stack *stack);
+t_node *splitlst(char *str, t_stack *stack);
+char	**ft_split(char const *s, char c);
+
 
 #endif

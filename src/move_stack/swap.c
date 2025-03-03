@@ -27,9 +27,9 @@ void	ft_swap(t_stack *lst, char c)
 	ft_printf("s%c", c);
 }
 
-void	swap_both(t_stack *stack1, t_stack *stack2)
+void	swap_both(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_swap(stack1, 'a');
-	ft_swap(stack2, 'b');
+	ft_swap(stack_a, 'a');
+	ft_swap(stack_b, 'b');
 	ft_printf("ss\n");
 }

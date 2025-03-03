@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-t_stack	**splitlst(char *str, t_stack *stack)
+t_node	**splitlst(char *str, t_stack *stack)
 {
     long int	num;
     size_t		i;
@@ -23,7 +23,7 @@ t_stack	**splitlst(char *str, t_stack *stack)
     while (str && str[i])
     {
         num = parse_args(str + i);
-        if (num < -2147483648 || num > 2147483647 || !is_valid_number(str))
+        if (num < INT_MIN || num > INT_MAX || !is_valid_number(str))
         {
             free_stack(stack);
             return (NULL);

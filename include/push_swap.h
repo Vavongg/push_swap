@@ -20,7 +20,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <fcntl.h>
-#include <limits.h>
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -42,7 +42,7 @@ void	ft_reverse_rotate_both(t_stack *a, t_stack *b);
 void	ft_rotate(t_stack *lst, char c);
 void	rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	ft_swap(t_stack *lst, char c);
-void	swap_both(t_stack *stack1, t_stack *stack2);
+void	swap_both(t_stack *stack_a, t_stack *stack_b);
 
 //utils
 void	print_stack(t_stack *stack, char name);
@@ -59,6 +59,6 @@ int		ft_isdigit(int c);
 int		is_valid_number(char *str);
 int		ft_is_duplicate(int nb, char **argv, int i);
 long int parse_args(char *str);
-t_stack    **splitlst(char *str, t_stack *stack);
+t_node    **splitlst(char *str, t_stack *stack);
 
 #endif

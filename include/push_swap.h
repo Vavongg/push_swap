@@ -61,6 +61,6 @@ int 	ft_is_duplicate(t_stack *stack, int value);
 long int parse_args(char *str);
 t_node *splitlst(char *str, t_stack *stack);
 char	**ft_split(char const *s, char c);
-
+void	verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc);
 
 #endif

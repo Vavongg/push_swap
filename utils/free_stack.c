@@ -27,5 +27,4 @@ void	free_stack(t_stack *stack)
 		temp = NULL;
 	}
 	free(stack);
-	stack = NULL;
 }

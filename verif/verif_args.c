@@ -41,13 +41,45 @@ long parse_args(char *str)
     if (!is_valid_number(str))
     {
         print_error();
-        return (LONG_MIN);
+        exit(EXIT_FAILURE);
     }
     num = ft_atol(str);
-    if (num < LONG_MIN || num < INT_MIN || num > INT_MAX)
+    if (num < INT_MIN || num > INT_MAX)
     {
         print_error();
-        return (LONG_MIN);
+        exit(EXIT_FAILURE);
     }
     return (num);
+}
+
+void	verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc)
+{
+	int	num;
+	int	i;
+
+	if (argc == 2)
+    {
+		i = 0;
+		stack_a->head = splitlst(argv[1], stack_a);
+	}
+    else
+        i = 1;
+    while (argv[i])
+    {
+        num = ft_atol(argv[i]);
+        if (num < INT_MIN || num > INT_MAX || ft_is_duplicate(stack_a, num))
+        {
+            free_stack(stack_a);
+            free_stack(stack_b);
+            print_error();
+            exit(EXIT_FAILURE);
+		}
+        else if (!create_node(stack_a, argv[i]))
+        {
+            free_stack(stack_a);
+            free_stack(stack_b);
+            exit(EXIT_FAILURE);
+        }
+        i++;
+    }
 }

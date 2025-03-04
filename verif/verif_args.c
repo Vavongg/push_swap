@@ -12,26 +12,29 @@
 
 #include "../include/push_swap.h"
 
-int	is_valid_number(char *str)
-{
-    size_t	i;
 
-	if (!str || str[0] == '\0')
-		return (0);
+int is_valid_number(char *str)
+{
+    size_t i;
+
 	i = 0;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (!str[i + 1] || !ft_isdigit(str[i + 1]))
-			return (0);
+    while (str[i] == ' ')
 		i++;
-	}
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
+    if (str[i] == '\0')
+        return (0);
+    if (str[i] == '+' || str[i] == '-')
+    {
+        i++;
+        if (!str[i] || !ft_isdigit(str[i]))
+            return (0);
+    }
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]))
+            return (0);
+        i++;
+    }
+    return (1);
 }
 
 long parse_args(char *str)
@@ -52,18 +55,23 @@ long parse_args(char *str)
     return (num);
 }
 
-void	verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc)
+void verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc)
 {
-	int	num;
-	int	i;
+    int num;
+    int i;
 
-	if (argc == 2)
+	i = 1;
+    if (argc == 2)
     {
-		i = 0;
-		stack_a->head = splitlst(argv[1], stack_a);
-	}
-    else
-        i = 1;
+        stack_a->head = splitlst(argv[1], stack_a);
+        if (!stack_a->head)
+        {
+            free_stack(stack_a);
+            free_stack(stack_b);
+            print_error();
+            exit(EXIT_FAILURE);
+        }
+    }
     while (argv[i])
     {
         num = ft_atol(argv[i]);
@@ -73,7 +81,7 @@ void	verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc)
             free_stack(stack_b);
             print_error();
             exit(EXIT_FAILURE);
-		}
+        }
         else if (!create_node(stack_a, argv[i]))
         {
             free_stack(stack_a);

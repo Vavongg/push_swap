@@ -14,12 +14,15 @@
 
 t_node *splitlst(char *str, t_stack *stack)
 {
-    long num;
-    size_t i = 0;
-    t_node *head = NULL;
-    t_node *current = NULL;
+    long	num;
+    size_t	i;
+    t_node *head;
+    t_node *current;
     t_node *new_node;
 
+	i = 0;
+	head = NULL;
+	current = NULL;
     while (str[i] == ' ')
         i++;
     while (str[i])

@@ -58,9 +58,11 @@ long	ft_atol(char *nb);
 int		ft_isdigit(int c);
 int		is_valid_number(char *str);
 int 	ft_is_duplicate(t_stack *stack, int value);
+void assign_indices(t_node *head);
 long int parse_args(char *str);
 t_node *splitlst(char *str, t_stack *stack);
-char	**ft_split(char const *s, char c);
+void	free_args(char **args);
+char	**ft_split(char *str, char sep);
 void	verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc);
 
 #endif

@@ -34,8 +34,6 @@ int create_node(t_stack *stack, char *str)
     t_node *new_node;
 
     value = parse_args(str);
-    if (value == LONG_MIN)
-        return (0);
     new_node = ft_lstnew((int)value);
     if (!new_node)
         return (0);

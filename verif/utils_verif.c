@@ -39,10 +39,14 @@ long	ft_atol(char *nb)
 
 int ft_is_duplicate(t_stack *stack, int value)
 {
-    t_node *current = stack->head;
+    t_node *current;
 
+	current = stack->head;
+	if (!current)
+		return (0);
     while (current)
     {
+		printf("verif doublon : %d avec %d\n", value, current->value);
         if (current->value == value)
             return (1);
         current = current->next;

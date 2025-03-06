@@ -75,7 +75,7 @@ void verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc)
     while (argv[i])
     {
         num = ft_atol(argv[i]);
-        if (num < INT_MIN || num > INT_MAX || ft_is_duplicate(stack_a, num))
+		if (num < INT_MIN || num > INT_MAX || ft_is_duplicate(stack_a, num))
         {
             free_stack(stack_a);
             free_stack(stack_b);
@@ -90,4 +90,5 @@ void verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc)
         }
         i++;
     }
+	index_stack(stack_a);
 }

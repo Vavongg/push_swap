@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/28 02:39:18 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:30:10 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,13 @@ void	add_node(t_stack *stack, t_node *new_node);
 void 	index_stack(t_stack *stack);
 
 //verif
-long	ft_atol(char *nb);
-int		ft_isdigit(int c);
-int		is_valid_number(char *str);
-int 	ft_is_duplicate(t_stack *stack, int value);
-void assign_indices(t_node *head);
-long int parse_args(char *str);
-t_node *splitlst(char *str, t_stack *stack);
-void	free_args(char **args);
-char	**ft_split(char *str, char sep);
-void	verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc);
+long		ft_atol(char *nb);
+int			ft_isdigit(int c);
+int 		ft_is_duplicate(t_stack *stack, int value);
+long int 	convert_args(char *str);
+void		free_args(char **args);
+char		**ft_split(char *str, char sep);
+int			ft_is_num(char *str);
+void		verif_args(char **argv);
 
 #endif

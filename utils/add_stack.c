@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:02:16 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/28 02:26:44 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:27:14 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int create_node(t_stack *stack, char *str)
     long value;
     t_node *new_node;
 
-    value = parse_args(str);
+    value = convert_args(str);
     new_node = ft_lstnew((int)value);
     if (!new_node)
         return (0);

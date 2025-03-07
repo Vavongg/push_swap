@@ -6,43 +6,18 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:18 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/28 02:28:57 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:22:53 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-
-int is_valid_number(char *str)
+long convert_args(char *str)
 {
-    size_t i;
+    long num;
 
-	i = 0;
-    while (str[i] == ' ')
-		i++;
-    if (str[i] == '\0')
-        return (0);
-    if (str[i] == '+' || str[i] == '-')
-    {
-        i++;
-        if (!str[i] || !ft_isdigit(str[i]))
-            return (0);
-    }
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (0);
-        i++;
-    }
-    return (1);
-}
-
-long parse_args(char *str)
-{
-    long	num;
-
-    if (!is_valid_number(str))
-    {
+    if (!ft_is_num(str))
+	{
         print_error();
         exit(EXIT_FAILURE);
     }
@@ -55,40 +30,48 @@ long parse_args(char *str)
     return (num);
 }
 
-void verif_args(t_stack *stack_a, t_stack *stack_b, char **argv, int argc)
+int ft_is_num(char *str)
 {
-    int num;
-    int i;
+    int i = 0;
 
-	i = 1;
-    if (argc == 2)
+    if (!str || !str[0])
+		return (0);
+
+    if (str[i] == '-' || str[i] == '+')
+		i++;
+    while (str[i])
     {
-        stack_a->head = splitlst(argv[1], stack_a);
-        if (!stack_a->head)
-        {
-            free_stack(stack_a);
-            free_stack(stack_b);
-            print_error();
-            exit(EXIT_FAILURE);
-        }
-    }
-    while (argv[i])
-    {
-        num = ft_atol(argv[i]);
-		if (num < INT_MIN || num > INT_MAX || ft_is_duplicate(stack_a, num))
-        {
-            free_stack(stack_a);
-            free_stack(stack_b);
-            print_error();
-            exit(EXIT_FAILURE);
-        }
-        else if (!create_node(stack_a, argv[i]))
-        {
-            free_stack(stack_a);
-            free_stack(stack_b);
-            exit(EXIT_FAILURE);
-        }
+        if (!ft_isdigit(str[i]))
+            return (0);
         i++;
     }
-	index_stack(stack_a);
+    return (1);
 }
+
+void	verif_args(char **argv)
+{
+    int		i;
+	int		j;
+    long	num;
+	char 	**split_args;
+
+    i = 1;
+    split_args = ft_split(argv[i], ' ');
+    while (argv[i])
+    {
+        if (!split_args)
+        {
+            print_error();
+            exit(EXIT_FAILURE);
+        }
+        j = 0;
+        while (split_args[j])
+        {
+            num = convert_args(split_args[j]);
+            j++;
+        }
+        free_args(split_args);
+        i++;
+    }
+}
+

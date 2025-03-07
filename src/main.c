@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:39:20 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/28 02:20:36 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:29:15 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void init_stacks(t_stack **stack_a, t_stack **stack_b)
 {
     *stack_a = malloc(sizeof(t_stack));
     *stack_b = malloc(sizeof(t_stack));
-
     if (!*stack_a || !*stack_b)
     {
         free(*stack_a);
@@ -36,10 +35,10 @@ int main(int argc, char **argv)
     t_stack *stack_b;
 
     if (argc < 2)
-        exit(EXIT_FAILURE);
+        print_error();
+    ft_is_num(*argv);
     init_stacks(&stack_a, &stack_b);
-    verif_args(stack_a, stack_b, argv, argc);
-    index_stack(stack_a);
+	index_stack(stack_a);
     print_stack(stack_a, 'a');
     free_stack(stack_a);
     free_stack(stack_b);

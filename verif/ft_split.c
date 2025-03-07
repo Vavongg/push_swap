@@ -12,47 +12,6 @@
 
 #include "../include/push_swap.h"
 
-t_node *splitlst(char *str, t_stack *stack)
-{
-    long	num;
-    size_t	i;
-    t_node *head;
-    t_node *current;
-    t_node *new_node;
-    char **args;
-
-    i = 0;
-    head = NULL;
-    current = NULL;
-    args = ft_split(str, ' ');
-	if (!args)
-		return NULL;
-    while (args[i])
-    {
-        num = ft_atol(args[i]);
-        if (ft_is_duplicate(stack, (int)num))
-        {
-            free_args(args);
-            free_stack(stack);
-            return NULL;
-        }
-        new_node = ft_lstnew((int)num);
-        if (!new_node)
-        {
-            free_args(args);
-            return NULL;
-        }
-        if (!head)
-            head = new_node;
-        else
-            current->next = new_node;
-        current = new_node;
-        i++;
-    }
-    free_args(args);
-	return (head);
-}
-
 static int	count_words(char *str, char sep)
 {
 	int count;

@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/07 16:30:10 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:47:23 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ long int 	convert_args(char *str);
 void		free_args(char **args);
 char		**ft_split(char *str, char sep);
 int			ft_is_num(char *str);
-void		verif_args(char **argv);
+void 		verif_args(char **argv, t_stack *stack_a);
+
 
 #endif

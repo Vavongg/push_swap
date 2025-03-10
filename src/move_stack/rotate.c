@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:51:28 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/24 15:45:30 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/10 17:33:06 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_rotate(t_stack *lst, char c)
 		temp = temp->next;
 	temp->next = first;
 	first->next = NULL;
-	ft_printf("r%c", c);
+	ft_printf("r%c\n", c);
 }
 
 void	rotate_both(t_stack *stack_a, t_stack *stack_b)

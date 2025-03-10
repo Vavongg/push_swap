@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:49:43 by ainthana          #+#    #+#             */
-/*   Updated: 2025/02/14 14:53:03 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/10 17:32:57 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	ft_push(t_stack *src, t_stack *dst, char c)
 	dst->head = temp;
 	dst->size++;
 	src->size--;
-	ft_printf("p%c", c);
+	ft_printf("p%c\n", c);
 }

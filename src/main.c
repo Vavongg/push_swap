@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:39:20 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/10 14:13:11 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:42:29 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ int main(int argc, char **argv)
 
     if (argc < 2)
     {
-        print_error();
-        return (1);
+        return (0);
     }
     init_stacks(&stack_a, &stack_b);
     verif_args(argv, stack_a, stack_b);

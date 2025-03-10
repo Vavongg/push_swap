@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:32:25 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/07 16:20:28 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/07 23:22:10 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int ft_is_duplicate(t_stack *stack, int value)
 		return (0);
     while (current)
     {
-		printf("verif doublon : %d avec %d\n", value, current->value);
         if (current->value == value)
             return (1);
         current = current->next;

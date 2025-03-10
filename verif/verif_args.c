@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:18 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/07 17:49:51 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:25:12 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,10 @@ long convert_args(char *str)
     long num;
 
     if (!ft_is_num(str))
-	{
-        print_error();
-        exit(EXIT_FAILURE);
-    }
+        return (2147483648);
     num = ft_atol(str);
     if (num < INT_MIN || num > INT_MAX)
-    {
-        print_error();
-        exit(EXIT_FAILURE);
-    }
+        return (2147483648);
     return (num);
 }
 
@@ -48,7 +42,7 @@ int ft_is_num(char *str)
     return (1);
 }
 
-void verif_args(char **argv, t_stack *stack_a)
+void verif_args(char **argv, t_stack *stack_a, t_stack *stack_b)
 {
     int		i;
     int		j;
@@ -61,6 +55,8 @@ void verif_args(char **argv, t_stack *stack_a)
         split_args = ft_split(argv[i], ' ');
         if (!split_args)
         {
+            free_stack(stack_a);
+            free_stack(stack_b);
             print_error();
             exit(EXIT_FAILURE);
         }
@@ -68,14 +64,18 @@ void verif_args(char **argv, t_stack *stack_a)
         while (split_args[j])
         {
             num = convert_args(split_args[j]);
-            if (ft_is_duplicate(stack_a, num))
+            if (ft_is_duplicate(stack_a, num) || num == 2147483648)
             {
+                free_stack(stack_a);
+                free_stack(stack_b);
                 free_args(split_args);
                 print_error();
                 exit(EXIT_FAILURE);
             }
             if (!create_node(stack_a, split_args[j]))
             {
+                free_stack(stack_a);
+                free_stack(stack_b);
                 free_args(split_args);
                 print_error();
                 exit(EXIT_FAILURE);

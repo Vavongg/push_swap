@@ -85,7 +85,9 @@ char	**ft_split(char *str, char sep)
 
 void	free_args(char **args)
 {
-	int	i = 0;
+	int	i;
+	
+	i = 0;
 	while (args[i])
 		free(args[i++]);
 	free(args);

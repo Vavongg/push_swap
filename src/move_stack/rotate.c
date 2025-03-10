@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:51:28 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/10 17:33:06 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/10 19:06:49 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_rotate(t_stack *lst, char c)
 {
 	t_node	*first;
 	t_node	*temp;
-	
+
 	if (!lst || !lst->head || !lst->head->next)
 		return ;
 	first = lst->head;

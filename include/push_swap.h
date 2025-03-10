@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/10 14:05:52 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/10 19:05:08 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,21 @@ void	swap_both(t_stack *stack_a, t_stack *stack_b);
 
 //utils
 void	print_stack(t_stack *stack, char name);
-void 	print_error(void);
+void	print_error(void);
 void	free_stack(t_stack *stack);
 t_node	*ft_lstnew(int value);
-int 	create_node(t_stack *stack, char *str);
+int		create_node(t_stack *stack, char *str);
 void	add_node(t_stack *stack, t_node *new_node);
-void 	index_stack(t_stack *stack);
+void	index_stack(t_stack *stack);
 
 //verif
-long		ft_atol(char *nb);
-int			ft_isdigit(int c);
-int 		ft_is_duplicate(t_stack *stack, int value);
-long int 	convert_args(char *str);
-void		free_args(char **args);
-char		**ft_split(char *str, char sep);
-int			ft_is_num(char *str);
-void 		verif_args(char **argv, t_stack *stack_a, t_stack *stack_b);
-
+long	ft_atol(char *nb);
+int		ft_isdigit(int c);
+int		ft_is_duplicate(t_stack *stack, int value);
+long	convert_args(char *str);
+void	free_args(char **args);
+char	**ft_split(char *str, char sep);
+int		ft_is_num(char *str);
+void	verif_args(char **argv, t_stack *stack_a, t_stack *stack_b);
 
 #endif

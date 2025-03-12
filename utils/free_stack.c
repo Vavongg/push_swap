@@ -18,7 +18,6 @@ void	free_stack(t_stack *stack)
 
 	if (!stack)
 		return ;
-
 	while (stack->head)
 	{
 		temp = stack->head;

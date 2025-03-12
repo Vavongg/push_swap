@@ -28,17 +28,17 @@ void	add_node(t_stack *stack, t_node *new_node)
 	stack->size++;
 }
 
-int create_node(t_stack *stack, char *str)
+int	create_node(t_stack *stack, char *str)
 {
-    long value;
-    t_node *new_node;
+	long	value;
+	t_node	*new_node;
 
-    value = convert_args(str);
-    new_node = ft_lstnew((int)value);
-    if (!new_node)
-        return (0);
-    add_node(stack, new_node);
-    return (1);
+	value = convert_args(str);
+	new_node = ft_lstnew((int)value);
+	if (!new_node)
+		return (0);
+	add_node(stack, new_node);
+	return (1);
 }
 
 t_node	*ft_lstnew(int value)

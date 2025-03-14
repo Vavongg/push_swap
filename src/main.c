@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	init_stacks(&stack_a, &stack_b);
-	verif_args(argv, stack_a, stack_b);
+	verif_args2(argv, stack_a, stack_b);
 	index_stack(stack_a);
 	print_stack(stack_a, 'a');
 	free_stack(stack_a);

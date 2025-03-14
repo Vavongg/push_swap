@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/10 19:05:08 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/14 12:22:45 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct s_stack
 	struct s_node	*head;
 }	t_stack;
 
+//algorithmes
+int	is_sorted(t_stack *stack);
+
 //move_stack
 void	ft_push(t_stack *src, t_stack *dst, char c);
 void	ft_reverse_rotate(t_stack *lst, char c);
@@ -61,6 +64,8 @@ long	convert_args(char *str);
 void	free_args(char **args);
 char	**ft_split(char *str, char sep);
 int		ft_is_num(char *str);
-void	verif_args(char **argv, t_stack *stack_a, t_stack *stack_b);
+void	verif_args2(char **argv, t_stack *stack_a, t_stack *stack_b);
+void	verif_args1(char *arg, t_stack *stack_a, t_stack *stack_b);
+void	handle_error(t_stack *stack_a, t_stack *stack_b, char **split_args);
 
 #endif

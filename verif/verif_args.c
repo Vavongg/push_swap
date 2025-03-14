@@ -42,47 +42,42 @@ int	ft_is_num(char *str)
 	return (1);
 }
 
-void	verif_args(char **argv, t_stack *stack_a, t_stack *stack_b)
+void	handle_error(t_stack *stack_a, t_stack *stack_b, char **split_args)
 {
-	int		i;
+	free_stack(stack_a);
+	free_stack(stack_b);
+	if (split_args)
+		free_args(split_args);
+	print_error();
+	exit(EXIT_FAILURE);
+}
+
+void	verif_args1(char *arg, t_stack *stack_a, t_stack *stack_b)
+{
+	char	**split_args;
 	int		j;
 	long	num;
-	char	**split_args;
+
+	split_args = ft_split(arg, ' ');
+	if (!split_args)
+		handle_error(stack_a, stack_b, NULL);
+	j = 0;
+	while (split_args[j])
+	{
+		num = convert_args(split_args[j]);
+		if (ft_is_duplicate(stack_a, num)
+			|| num == 2147483648 || !create_node(stack_a, split_args[j]))
+			handle_error(stack_a, stack_b, split_args);
+		j++;
+	}
+	free_args(split_args);
+}
+
+void	verif_args2(char **argv, t_stack *stack_a, t_stack *stack_b)
+{
+	int	i;
 
 	i = 1;
 	while (argv[i])
-	{
-		split_args = ft_split(argv[i], ' ');
-		if (!split_args)
-		{
-			free_stack(stack_a);
-			free_stack(stack_b);
-			print_error();
-			exit(EXIT_FAILURE);
-		}
-		j = 0;
-		while (split_args[j])
-		{
-			num = convert_args(split_args[j]);
-			if (ft_is_duplicate(stack_a, num) || num == 2147483648)
-			{
-				free_stack(stack_a);
-				free_stack(stack_b);
-				free_args(split_args);
-				print_error();
-				exit(EXIT_FAILURE);
-			}
-			if (!create_node(stack_a, split_args[j]))
-			{
-				free_stack(stack_a);
-				free_stack(stack_b);
-				free_args(split_args);
-				print_error();
-				exit(EXIT_FAILURE);
-			}
-			j++;
-		}
-		free_args(split_args);
-		i++;
-	}
+		verif_args1(argv[i++], stack_a, stack_b);
 }

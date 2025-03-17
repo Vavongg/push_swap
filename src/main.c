@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:39:20 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/10 19:19:12 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:38:22 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,16 @@ int	main(int argc, char **argv)
 	init_stacks(&stack_a, &stack_b);
 	verif_args2(argv, stack_a, stack_b);
 	index_stack(stack_a);
-	print_stack(stack_a, 'a');
+	if (!is_sorted(stack_a))
+	{
+		if (stack_a->size == 2)
+			ft_swap(stack_a, 'a');
+		else if (stack_a->size == 3)
+			sort_three();
+		else
+			sort();
+	}
+	//print_stack(stack_a, 'a');
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

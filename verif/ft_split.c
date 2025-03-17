@@ -22,39 +22,45 @@ static int	count_words(char *str, char sep)
 		while (*str == sep)
 			str++;
 		if (*str)
+		{
 			count++;
-		while (*str && *str != sep)
-			str++;
+			while (*str && *str != sep)
+				str++;
+		}
 	}
 	return (count);
 }
 
-static char	*extract_word(char *str, char sep)
+static int	add_word(char **tab, int i, char *str, char sep)
 {
 	int		len;
 	char	*word;
-	int		i;
+	int		j;
 
 	len = 0;
 	while (str[len] && str[len] != sep)
 		len++;
 	word = malloc(sizeof(char) * (len + 1));
 	if (!word)
-		return (NULL);
-	i = 0;
-	while (i < len)
 	{
-		word[i] = str[i];
-		i++;
+		free_args(tab);
+		return (0);
+	}
+	j = 0;
+	while (j < len)
+	{
+		word[j] = str[j];
+		j++;
 	}
 	word[len] = '\0';
-	return (word);
+	tab[i] = word;
+	return (1);
 }
 
 char	**ft_split(char *str, char sep)
 {
-	int		words;
 	char	**tab;
+	int		words;
 	int		i;
 
 	i = 0;
@@ -68,13 +74,8 @@ char	**ft_split(char *str, char sep)
 			str++;
 		if (*str)
 		{
-			tab[i] = extract_word(str, sep);
-			if (!tab[i])
-			{
-				free_args(tab);
+			if (!add_word(tab, i++, str, sep))
 				return (NULL);
-			}
-			i++;
 			while (*str && *str != sep)
 				str++;
 		}

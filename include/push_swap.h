@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/14 12:22:45 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:27:44 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_stack
 }	t_stack;
 
 //algorithmes
-int	is_sorted(t_stack *stack);
+int		is_sorted(t_stack *stack);
 
 //move_stack
 void	ft_push(t_stack *src, t_stack *dst, char c);

@@ -27,3 +27,39 @@ int	is_sorted(t_stack *stack)
 	}
 	return (1);
 }
+
+int	get_min(t_stack *a)
+{
+	t_node	*current;
+	int		min;
+
+	if (!a || !a->head)
+		exit(EXIT_FAILURE);
+	current = a->head;
+	min = current->value;
+	while (current)
+	{
+		if (current->value < min)
+			min = current->value;
+		current = current->next;
+	}
+	return (min);
+}
+
+int	get_max(t_stack *a)
+{
+	t_node	*current;
+	int		max;
+
+	if (!a || !a->head)
+		exit(EXIT_FAILURE);
+	current = a->head;
+	max = current->value;
+	while (current)
+	{
+		if (current->value > max)
+			max = current->value;
+		current = current->next;
+	}
+	return (max);
+}

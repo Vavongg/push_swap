@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 11:27:07 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/17 14:26:20 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:05:02 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,6 @@ void	sort_three(t_stack *a)
 			ft_swap(a, 'a');
 	}
 }
+
+void	push_to_b(t_stack *a, t_stack *b)
+{}

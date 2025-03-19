@@ -39,6 +39,7 @@ typedef struct s_stack
 int		is_sorted(t_stack *stack);
 int		get_min(t_stack *a);
 int		get_max(t_stack *a);
+void	sort_three(t_stack *a);
 
 //move_stack
 void	ft_push(t_stack *src, t_stack *dst, char c);

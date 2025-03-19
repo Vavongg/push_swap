@@ -14,7 +14,7 @@
 
 int	is_sorted(t_stack *stack)
 {
-	t_node	tmp;
+	t_node	*tmp;
 
 	if (!stack)
 		return (1);

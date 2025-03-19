@@ -43,9 +43,9 @@ int	main(int argc, char **argv)
 		if (stack_a->size == 2)
 			ft_swap(stack_a, 'a');
 		else if (stack_a->size == 3)
-			sort_three();
-		else
-			sort();
+			sort_three(stack_a);
+		/*else
+			sort();*/
 	}
 	//print_stack(stack_a, 'a');
 	free_stack(stack_a);

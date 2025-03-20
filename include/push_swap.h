@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/17 14:50:40 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/20 00:06:10 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		is_sorted(t_stack *stack);
 int		get_min(t_stack *a);
 int		get_max(t_stack *a);
 void	sort_three(t_stack *a);
+int		count_r(t_stack *stack, int index);
 
 //move_stack
 void	ft_push(t_stack *src, t_stack *dst, char c);

@@ -37,7 +37,7 @@ typedef struct s_stack
 
 //algorithmes
 int		is_sorted(t_stack *stack);
-int		get_min(t_stack *a);
+int		get_min_index(t_stack *a);
 int		get_max(t_stack *a);
 void	sort_three(t_stack *a);
 int		count_r(t_stack *stack, int index);

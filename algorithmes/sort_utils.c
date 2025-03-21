@@ -28,22 +28,30 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-int	get_min(t_stack *a)
+int	get_min_index(t_stack *a)
 {
 	t_node	*current;
-	int		min;
+	int		min_value;
+	int		min_index;
+	int		index;
 
 	if (!a || !a->head)
 		exit(EXIT_FAILURE);
 	current = a->head;
-	min = current->value;
+	min_value = current->value;
+	min_index = 0;
+	index = 0;
 	while (current)
 	{
-		if (current->value < min)
-			min = current->value;
+		if (current->value < min_value)
+		{
+			min_value = current->value;
+			min_index = index;
+		}
 		current = current->next;
+		index++;
 	}
-	return (min);
+	return (min_index);
 }
 
 int	get_max(t_stack *a)

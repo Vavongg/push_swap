@@ -12,30 +12,79 @@
 
 #include "../include/push_swap.h"
 
-void	sort_three(t_stack *a)
+int	sort_three(t_stack *stack, int min_s_index)
 {
-	int		biggest_value;
-	t_node	*current;
+	int	a;
+	int	b;
+	int	c;
 
-	current = a->head;
-	biggest_value = get_max(a);
-	if (!a || !a->head || !a->head->next || !a->head->next->next)
+	(void)min_s_index;
+	a = stack->head->value;
+	b = stack->head->next->value;
+	c = stack->head->next->next->value;
+	if (a < b && b < c)
+		return (1);
+	if (b < c && a > c)
+		return (1);
+	if (c < a && a < b)
+		return (1);
+	return (0);
+}
+
+void	simple_sort(t_stack *stack, int length)
+{
+	int		min_s_index;
+	int		r;
+
+	if (is_sorted(stack))
 		return ;
-	if (current->value == biggest_value)
+	min_s_index = get_min_index(stack);
+	r = count_r(stack->head, min_s_index);
+	if (sort_three(stack, min_s_index))
 	{
-		ft_rotate(a, 'a');
-		if (a->head->value > a->head->next->value)
-			ft_swap(a, 'a');
-	}
-	else if (current->next->value == biggest_value)
-	{
-		ft_reverse_rotate(a, 'a');
-		if (a->head->value > a->head->next->value)
-			ft_swap(a, 'a');
+		if (r < length - r)
+			ft_rotate(stack, 'a');
+		else
+			ft_reverse_rotate(stack, 'a');
 	}
 	else
 	{
-		if (a->head->value > a->head->next->value)
-			ft_swap(a, 'a');
+		ft_swap(stack, 'a');
+		if (is_sorted(stack))
+			return ;
+		if (r < length - r)
+			ft_rotate(stack, 'a');
+		else
+			ft_reverse_rotate(stack, 'a');
 	}
 }
+
+void	insertion_sort(t_stack *stack_a, t_stack *stack_b, int length)
+{
+	int	min_index;
+	int	iter;
+	int	n;
+
+	iter = 0;
+	n = length;
+	while (iter++ < n - 3)
+	{
+		min_index = get_min_index(stack_a);
+		if (count_r(stack_a->head, min_index) <= n - min_index - \
+			count_r(stack_a->head, min_index))
+			while (stack_a->head->index != min_index)
+				ft_rotate(stack_a, 'a');
+		else
+			while (stack_a->head->index != min_index)
+				ft_reverse_rotate(stack_a, 'a');
+		if (is_sorted(stack_a) && stack_b->size == 0)
+			return ;
+		ft_push(stack_b, stack_a, 'b');
+		length--;
+	}
+	simple_sort(stack_a, length);
+	iter = 0;
+	while (iter++ < n - 3)
+		ft_push(stack_a, stack_b, 'a');
+}
+

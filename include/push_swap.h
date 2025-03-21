@@ -39,8 +39,13 @@ typedef struct s_stack
 int		is_sorted(t_stack *stack);
 int		get_min_index(t_stack *a);
 int		get_max(t_stack *a);
-void	sort_three(t_stack *a);
-int		count_r(t_stack *stack, int index);
+int		sort_three(t_stack *stack, int min_s_index);
+int		count_r(t_node *stack, int index);
+void	simple_sort(t_stack *stack, int length);
+void	insertion_sort(t_stack *stack_a, t_stack *stack_b, int length);
+void	sort(t_stack *stack_a, t_stack *stack_b, int length);
+void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length);
+void	k_sort2(t_stack *stack_a, t_stack *stack_b, int length);
 
 //move_stack
 void	ft_push(t_stack *src, t_stack *dst, char c);
@@ -68,6 +73,7 @@ long	convert_args(char *str);
 void	free_args(char **args);
 char	**ft_split(char *str, char sep);
 int		ft_is_num(char *str);
+int		ft_sqrt(int number);
 void	verif_args2(char **argv, t_stack *stack_a, t_stack *stack_b);
 void	verif_args1(char *arg, t_stack *stack_a, t_stack *stack_b);
 void	handle_error(t_stack *stack_a, t_stack *stack_b, char **split_args);

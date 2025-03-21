@@ -32,22 +32,15 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		length;
 
 	if (argc < 2)
 		return (0);
 	init_stacks(&stack_a, &stack_b);
 	verif_args2(argv, stack_a, stack_b);
 	index_stack(stack_a);
-	if (!is_sorted(stack_a))
-	{
-		if (stack_a->size == 2)
-			ft_swap(stack_a, 'a');
-		else if (stack_a->size == 3)
-			sort_three(stack_a);
-		/*else
-			sort();*/
-	}
-	//print_stack(stack_a, 'a');
+	length = stack_a->size;
+	sort(stack_a, stack_b, length);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

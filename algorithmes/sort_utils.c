@@ -72,19 +72,38 @@ int	get_max(t_stack *a)
 	return (max);
 }
 
-int	count_r(t_stack *stack, int index)
+int	count_r(t_node *stack, int index)
 {
-	int		counter;
-	t_node	*current;
+	int	counter;
 
-	if (!stack || !stack->head)
-		return (0);
 	counter = 0;
-	current = stack->head;
-	while (current && current->index != index)
+	while (stack && stack->index != index)
 	{
-		current = current->next;
+		stack = stack->next;
 		counter++;
 	}
 	return (counter);
+}
+
+void	sort(t_stack *stack_a, t_stack *stack_b, int length)
+{
+	if (is_sorted(stack_a))
+	{
+		free_stack(stack_a);
+		free_stack(stack_b);
+		exit(EXIT_FAILURE);
+	}
+	else if (length == 2)
+		ft_swap(stack_a, 'a');
+	else if (length == 3)
+		simple_sort(stack_a, length);
+	else if (length <= 7)
+		insertion_sort(stack_a, stack_b, length);
+	/*else if (length > 7)
+	{
+		k_sort1(stack_a, stack_b, length);
+		k_sort2(stack_a, stack_b, length);
+	}*/
+	else
+		print_error();
 }

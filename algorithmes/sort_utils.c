@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 11:27:09 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/20 00:12:33 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/21 01:16:20 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,24 @@ int	get_min(t_stack *a)
 		current = current->next;
 	}
 	return (min);
+}
+
+int	get_max(t_stack *a)
+{
+	t_node	*current;
+	int		max;
+
+	if (!a || !a->head)
+		exit(EXIT_FAILURE);
+	current = a->head;
+	max = current->value;
+	while (current)
+	{
+		if (current->value > max)
+			max = current->value;
+		current = current->next;
+	}
+	return (max);
 }
 
 int	count_r(t_stack *stack, int index)

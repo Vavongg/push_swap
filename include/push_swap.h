@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:40:03 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/20 00:06:10 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/23 11:49:32 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ typedef struct s_stack
 
 //algorithmes
 int		is_sorted(t_stack *stack);
-int		get_min_index(t_stack *a);
-int		get_max(t_stack *a);
+int		get_min_index(t_stack *stack);
 int		sort_three(t_stack *stack, int min_s_index);
 int		count_r(t_node *stack, int index);
 void	simple_sort(t_stack *stack, int length);
@@ -48,7 +47,7 @@ void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length);
 void	k_sort2(t_stack *stack_a, t_stack *stack_b, int length);
 
 //move_stack
-void	ft_push(t_stack *src, t_stack *dst, char c);
+void	ft_push(t_stack *dst, t_stack *src, char c);
 void	ft_reverse_rotate(t_stack *lst, char c);
 void	ft_reverse_rotate_both(t_stack *a, t_stack *b);
 void	ft_rotate(t_stack *lst, char c);

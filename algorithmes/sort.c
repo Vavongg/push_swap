@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 11:27:07 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/20 01:41:56 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/23 11:41:01 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,3 +88,53 @@ void	insertion_sort(t_stack *stack_a, t_stack *stack_b, int length)
 		ft_push(stack_a, stack_b, 'a');
 }
 
+void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
+{
+	int	i;
+	int	range;
+
+	i = 0;
+	range = ft_sqrt(length) * 14 / 10;
+	while (stack_a->head)
+	{
+		if (stack_a->head->index <= i)
+		{
+			ft_push(stack_b, stack_a, 'b');
+			ft_rotate(stack_b, 'b');
+			i++;
+		}
+		else if (stack_a->head->index <= i + range)
+		{
+			ft_push(stack_b, stack_a, 'b');
+			i++;
+		}
+		else
+			ft_rotate(stack_a, 'a');
+	}
+}
+
+void	k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
+{
+	int	rb_count;
+	int	rrb_count;
+
+	while (length - 1 >= 0)
+	{
+		rb_count = count_r(stack_b->head, length - 1);
+		rrb_count = (length + 3) - rb_count;
+		if (rb_count <= rrb_count)
+		{
+			while (stack_b->head->index != length - 1)
+				ft_rotate(stack_b, 'b');
+			ft_push(stack_a, stack_b, 'a');
+			length--;
+		}
+		else
+		{
+			while (stack_b->head->index != length - 1)
+				ft_reverse_rotate(stack_b, 'b');
+			ft_push(stack_a, stack_b, 'a');
+			length--;
+		}
+	}
+}

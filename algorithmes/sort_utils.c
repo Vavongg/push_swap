@@ -6,7 +6,7 @@
 /*   By: ainthana <ainthana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 11:27:09 by ainthana          #+#    #+#             */
-/*   Updated: 2025/03/23 11:41:37 by ainthana         ###   ########.fr       */
+/*   Updated: 2025/03/23 12:00:28 by ainthana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_sorted(t_stack *stack)
 {
 	t_node	*tmp;
 
-	if (!stack)
+	if (!stack || !stack->head)
 		return (1);
 	tmp = stack->head;
 	while (tmp->next)
